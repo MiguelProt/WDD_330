@@ -9,6 +9,7 @@ function convertToJson(res) {
 
 function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
+  console.log(JSON.parse(localStorage.getItem(key)));
 }
 
 // get tents data
@@ -26,8 +27,10 @@ function getProductsData() {
 
 // add to cart button event handler
 function addToCart(e) {
+  //console.log(e.target.dataset.id);
   const product = products.find((item) => item.Id === e.target.dataset.id);
   setLocalStorage("so-cart", product);
+  console.log(JSON.parse(localStorage.getItem('so-cart')));
 }
 
 getProductsData();
