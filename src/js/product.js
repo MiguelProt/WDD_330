@@ -30,6 +30,40 @@ function addToCart(e) {
   setLocalStorage("so-cart", product);
 }
 
-getProductsData();
+//getProductsData();
 // add listener to Add to Cart button
 document.getElementById("addToCart").addEventListener("click", addToCart);
+
+(function() {
+  //get Url Variable  
+  const query = window.location.search;
+  const urlParams = new URLSearchParams(query);
+  const idProduct = urlParams.get('id');
+
+  getProductsData();
+  setTimeout(() => {
+    products.forEach(product => {
+      if( product['Id'] == idProduct) {
+        let brand = document.querySelector('.product-brand');
+        let name = document.querySelector('.product-name');
+        let img = document.querySelector('.product-img');
+        let price = document.querySelector('.product-card__price');
+        let color = document.querySelector('.product__color');
+        let desc = document.querySelector('.product__description');
+        let addToCart = document.querySelector('#addToCart');
+
+        console.log(product)
+        brand.textContent = product.Brand.Name;
+        name.textContent = product.NameWithoutBrand;
+        img.setAttribute('src', product.Image);
+        img.setAttribute('alt', product.Name);
+        price.textContent = `$${product.ListPrice}`;
+        if( product.Colors.length > 0)
+          color.textContent = product.Colors[0].ColorName;
+        desc.innerHTML = product.DescriptionHtmlSimple
+
+        addToCart.dataset.id = product.Id;
+      }
+    });
+  }, 250);
+})();
