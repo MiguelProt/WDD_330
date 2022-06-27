@@ -90,6 +90,13 @@ button {
   border: 0;
   font-size: var(--large-font);
 }
+button:hover {
+  background: var(--primary-color);
+  cursor: pointer;
+}
+button:active {
+  background: var(--secondary-color);
+}
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
