@@ -3,6 +3,7 @@ export default class ProductList {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
+        console.log('done');
     }
 
     async init() {
@@ -18,7 +19,7 @@ export default class ProductList {
             this.listElement.appendChild(product_data)
         });
     }
-    
+
     prepareTemplate(template, product){
         template.querySelector('a').href +=  product.Id;
         template.querySelector('img').setAttribute('src', product.Image);
