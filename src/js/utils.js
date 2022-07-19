@@ -29,3 +29,7 @@ export function getParam(key) {
   const idProduct = urlParams.get(key);
   return idProduct;
 }
+
+export function renderListWithTemplate(){
+  
+}
