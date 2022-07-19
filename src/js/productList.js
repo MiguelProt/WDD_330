@@ -3,7 +3,6 @@ export default class ProductList {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
-        console.log('done');
     }
 
     async init() {
@@ -12,6 +11,7 @@ export default class ProductList {
     }
 
     renderList(list) {
+        console.log('done');
         const template = document.getElementById('product-card-template');
         list.forEach(product => {
             const single_product = template.content.cloneNode(true);
